@@ -10,6 +10,7 @@ import Maintenance from "./components/interfaces/Maintenance";
 import Navigate from "./components/interfaces/Navigate";
 import AddProperty from "./components/interfaces/AddProperty";
 import { Toaster } from "./components/ui/sonner";
+import AddOccupant from "./components/interfaces/AddOccupant";
 
 export default function Dashboard() {
   return (
@@ -34,6 +35,7 @@ export default function Dashboard() {
                 </TabsTrigger>
                 <TabsTrigger value="calendar">Calendar</TabsTrigger>
                 <TabsTrigger value="add-property">Add Property</TabsTrigger>
+                <TabsTrigger value="add-occupant">Add occupant</TabsTrigger>
               </TabsList>
             </ScrollArea>
           </div>
@@ -44,6 +46,7 @@ export default function Dashboard() {
             <Maintenance></Maintenance>
             <Calendar></Calendar>
             <AddProperty></AddProperty>
+            <AddOccupant></AddOccupant>
           </ScrollArea>
         </Tabs>
       </div>

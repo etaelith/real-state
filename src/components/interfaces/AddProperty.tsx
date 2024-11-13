@@ -77,7 +77,10 @@ const AddProperty = () => {
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="grid grid-cols-2 gap-2"
+            >
               <FormField
                 control={form.control}
                 name="propertyName"
@@ -307,7 +310,22 @@ const AddProperty = () => {
                   </FormItem>
                 )}
               />
-
+              <FormField
+                control={form.control}
+                name="amenities"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Amenities</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Enter amenities (comma-separated)"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <FormField
                 control={form.control}
                 name="furnished"
@@ -339,25 +357,10 @@ const AddProperty = () => {
                   </FormItem>
                 )}
               />
-
-              <FormField
-                control={form.control}
-                name="amenities"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Amenities</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Enter amenities (comma-separated)"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <Button type="submit" variant="outline">
+              <Button variant="destructive" className="mt-4">
+                Clear values
+              </Button>
+              <Button type="submit" variant="default" className="mt-4">
                 Add Property
               </Button>
             </form>

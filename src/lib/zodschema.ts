@@ -25,23 +25,27 @@ export const AddPropertySchema = z.object({
     .optional(),
 });
 
-// Uso del esquema de validación
-/* AddPropertySchema.parse({
-  propertyName: "My Property",
-  propertyType: "apartment",
-  address: "123 Main St",
-  city: "Sample City",
-  state: "Sample State",
-  zipCode: "12345",
-  bedrooms: 2,
-  bathrooms: 1,
-  squareMeters: 1200,
-  yearBuilt: 2005,
-  rentAmount: 1500.0,
-  depositAmount: 500.0,
-  description: "A nice property with modern amenities.",
-  furnished: true,
-  petsAllowed: false,
-  amenities: "Pool, Gym, Parking",
+export const TenantSchema = z.object({
+  tenantName: z.string().min(1, "Tenant name is required"),
+  tenantEmail: z
+    .string()
+    .email("Invalid email address")
+    .min(1, "Email is required"),
+  tenantPhone: z
+    .string()
+    .regex(/^\d{10,15}$/, "Invalid phone number")
+    .optional(),
+  tenantID: z.string().min(5, "ID is required"),
+  leaseStartDate: z.date().nullable(), // Permite que sea nulo o una fecha
+  leaseEndDate: z.date().nullable().optional(), // Permite que sea opcional
+  /*   emergencyContact: z
+    .object({
+      name: z.string().min(1, "Contact name is required"),
+      relation: z.string().optional(),
+      phone: z
+        .string()
+        .regex(/^\d{10,15}$/, "Invalid contact phone number")
+        .optional(),
+    })
+    .optional(), */
 });
- */
